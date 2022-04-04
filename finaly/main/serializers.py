@@ -1,13 +1,7 @@
 from .models import *
 from rest_framework import serializers
 
-
-def possible_answer(answer_id):
-    answer = Answer.objects.get(pk=answer_id)
-    if answer.possible_answer == 1:
-        return True
-    else:
-        return False
+from .services import _possible_answer
 
 
 class UserResultsSerializer(serializers.Serializer):
@@ -82,7 +76,7 @@ class UserAnswersSerializer(serializers.ModelSerializer):
         answers = []
         true_answers_possible = Answer.objects.filter(question=validated_data['question_id'], possible_answer=1).count()
         for answer in validated_data['answer_id']:
-            if not possible_answer(answer.id) or len(validated_data['answer_id']) > true_answers_possible:
+            if not _possible_answer(answer.id) or len(validated_data['answer_id']) > true_answers_possible:
                 user_answers = UserAnswer.objects.create(
                     question_id=validated_data.get('question_id', None),
                     user=validated_data.get('user', None),

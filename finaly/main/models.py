@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 class Survey(models.Model):
     """Модель опроса"""
-
     sur_type = {
         (1, 'Тест'),
         (2, 'Опрос')
