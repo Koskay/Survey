@@ -1,0 +1,61 @@
+version: "3.3"
+
+services:
+  web:
+    build: ./finaly
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - static_volume:/usr/src/app/static
+      - media_volume:/usr/src/app/media
+    depends_on:
+      - db
+
+
+
+  frontend:
+      build: ./front
+      volumes:
+        - vue_dist:/usr/src/app/frontend/dist
+
+
+  nginx:
+      restart: always
+      build: ./nginx/
+      ports:
+        - "80:80"
+      volumes:
+        - static_volume:/usr/src/app/static
+        - media_volume:/usr/src/app/media
+        - vue_dist:/app/dist
+      depends_on:
+        - web
+
+
+  db:
+    restart: always
+    image: postgres:13.4-alpine
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=hr_dbs
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=devpass
+      - LANG=ru_RU.UTF-8
+      - LANGUAGE=ru_RU:ru
+      - LC_ALL=ru_RU.UTF-8
+    ports:
+    - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+volumes:
+  postgres_data:
+    name: postgres
+  static_volume:
+    name: static_vol
+  media_volume:
+    name: media_vol
+  vue_dist:
+    name: vue_vol
