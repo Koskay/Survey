@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u6vg!2&f_)w2ggii&dl+&ru(gvd=x)!tz7!nk87iatmlh0a6)x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -92,8 +92,8 @@ DATABASES = {
         'NAME': 'hr_dbs',
         'USER': 'devuser',
         'PASSWORD': 'devpass',
-        'HOST': 'localhost',
-        'PORT': ''
+        'HOST': 'db',
+        'PORT': 5432
     }
 }
 
@@ -146,7 +146,8 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8081',
     'http://localhost:80',
     'http://localhost',
-    'http://45.136.180.68:8080'
+    'http://45.136.180.68:8080',
+    'http://45.136.180.68:80'
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
