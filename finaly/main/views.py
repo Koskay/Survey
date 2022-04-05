@@ -69,7 +69,7 @@ class UserPoints(APIView):
                                    'user_questions_count': count_user_questions,
                                    'questions_count': len(questions),
                                    'answer_count': count_answer_possible,
-                                   'user_answer_count': user_answer_possible
+                                   'user_answer_count': user_answer_possible,
                                    })
         serializer = UserResultsSerializer(all_user_state, many=True)
         return Response(serializer.data)

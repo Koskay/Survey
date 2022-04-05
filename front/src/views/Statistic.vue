@@ -21,7 +21,7 @@
               <div v-for="(point) in resultsList" :key="point.user_id">
                 <div v-if="point.total!==null">
                   <div class="items-card" v-if="point.user_id === use.id">
-                    <h2>Колл-во вопросов:</h2>
+                    <h2>Кол-во вопросов: {{ point.questions_count }}</h2>
                     <div class="progress">
                       <div class="progress-bar" role="progressbar" :style="`width: ${progress(point.user_questions_count ,point.questions_count)}%`"
                       :aria-valuenow="progress(point.user_questions_count ,point.questions_count)" 
@@ -78,7 +78,6 @@ export default {
       this.statisticList = await axios
           .get(`api/statistic/${this.id}`
           ).then(response => response.data)
-      
     },
 
     async loadUsers() {
@@ -91,12 +90,10 @@ export default {
       this.resultsList = await axios
           .get(`api/user-results/${this.id}`
           ).then(response => response.data)
-          
-      
     },
 
     progress(user, question){
-      let bar = user*100/question
+      let bar = parseInt(user*100/question)
       return Number(bar)
     }
 

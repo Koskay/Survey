@@ -80,7 +80,6 @@ h2, h1, h3, h4, label {
 
 .btn:hover {
   background-color:#223951;
-  transform: skew(-10deg);
   color: #c9fa69;
 }
 

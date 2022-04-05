@@ -14,17 +14,14 @@
               <div v-else-if="filteredList(sur.finish) < today">
                 <h2>Тест Закончился!</h2>
                 <h3>Окончание: {{sur.finish}}</h3>
-                <div v-if="userStaff">
+                <div>
                   <b-button size="sm"  @click="goToStatic(sur.id)">Посмотреть статистику</b-button>
                 </div>
               </div>
               <div v-else>
-                <div v-if="userStaff">
+                <div>
                   <b-button  size="sm"  href="#" @click="goToQuest(sur.id)">Пройти тест</b-button>
                   <b-button href="#" size="sm"  @click="goToStatic(sur.id)">Посмотреть статистику</b-button>
-                </div>
-                <div v-else>
-                  <b-button href="#" size="sm"   @click="goToQuest(sur.id)">Пройти тест</b-button>
                 </div>
               </div>
             </b-card>
@@ -42,17 +39,14 @@
             <div v-else-if="filteredList(sur.finish) < today">
               <h2>Опрос Закончился!</h2>
               <h3>Окончание: {{sur.finish}}</h3>
-              <div v-if="userStaff">
+              <div>
                 <b-button size="sm"  @click="goToStatic(sur.id)">Посмотреть статистику</b-button>
               </div>
             </div>
             <div v-else>
-              <div v-if="userStaff">
+              <div>
                 <b-button  size="sm"  @click="goToQuest(sur.id)">Пройти опрос</b-button>
                 <b-button size="sm"  @click="goToStatic(sur.id)">Посмотреть статистику</b-button>
-              </div>
-              <div v-else>
-                <b-button size="sm"  @click="goToQuest(sur.id)">Пройти опрос</b-button>
               </div>
             </div>
           </b-card>
