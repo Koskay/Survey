@@ -34,7 +34,7 @@ export default {
   methods: {
     async loadResults() {
       this.resultsList = await axios
-          .get(`api/results/${this.survey}`
+          .get(`api/results/${this.survey}/`
           ).then(response => response.data)
     },
 

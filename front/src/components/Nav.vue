@@ -48,7 +48,7 @@ export default {
       this.$store.commit('removeToken')
       this.$store.commit('removeUsers')
       axios
-          .post('auth/token/logout')
+          .post('auth/token/logout/')
 
       axios.defaults.headers.common['Authorization'] = ''
 

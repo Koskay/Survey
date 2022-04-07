@@ -76,7 +76,7 @@ export default {
 
     async loadStatistic() {
       this.statisticList = await axios
-          .get(`api/statistic/${this.id}`
+          .get(`api/statistic/${this.id}/`
           ).then(response => response.data)
     },
 
@@ -88,7 +88,7 @@ export default {
 
     async loadResults() {
       this.resultsList = await axios
-          .get(`api/user-results/${this.id}`
+          .get(`api/user-results/${this.id}/`
           ).then(response => response.data)
     },
 

@@ -16,19 +16,19 @@ const routes = [
   },
 
   {
-    path: '/survey',
+    path: '/survey/',
     name: 'Survey',
     component: Survey,
     props: true
   },
   {
-    path: '/questions/:id',
+    path: '/questions/:id/',
     name: 'Questions',
     component: Questions,
     props: true
   },
   {
-    path: '/statistic/:id',
+    path: '/statistic/:id/',
     name: 'Statistic',
     component: Statistic,
     props: true

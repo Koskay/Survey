@@ -45,7 +45,7 @@ export default new Vuex.Store({
   },
   actions: {
     async getUser(ctx) {
-      await axios.get('api/auth/users/me')
+      await axios.get('api/auth/users/me/')
           .then((response) => {
              let userId = (response.data)
             ctx.commit('getUser', userId)

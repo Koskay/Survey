@@ -51,7 +51,7 @@ export default {
   methods: {
     async loadQuestions() {
       this.questionsList = await axios
-      .get(`api/questions/${this.id}`
+      .get(`api/questions/${this.id}/`
       ).then(response => response.data)
       this.questions = this.questionsList[0].types
     },

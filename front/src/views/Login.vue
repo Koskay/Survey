@@ -38,7 +38,7 @@ export default {
         password: this.password
       }
       await axios
-          .post('auth/token/login', formData)
+          .post('auth/token/login/', formData)
           .then(response => {
   
             const token = response.data.auth_token
