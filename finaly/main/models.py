@@ -18,6 +18,11 @@ class Survey(models.Model):
     def __str__(self):
         return self.sur_name
 
+    class Meta:
+        verbose_name = 'Опрос'
+        verbose_name_plural = 'Опросы'
+        ordering = ['s_types']
+
 
 class Question(models.Model):
     """Модель вопроса"""
@@ -32,6 +37,10 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_name
+
+    class Meta:
+        verbose_name = 'Вопрос'
+        verbose_name_plural = 'Вопросы'
 
 
 class Answer(models.Model):
@@ -48,6 +57,11 @@ class Answer(models.Model):
 
     def __str__(self):
         return self.input_name
+
+    class Meta:
+        verbose_name = 'Ответ'
+        verbose_name_plural = 'Ответы'
+        ordering = ['-point']
 
 
 class UserAnswer(models.Model):

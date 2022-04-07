@@ -4,19 +4,20 @@ from .models import *
 
 @admin.register(Survey)
 class SurveyAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('sur_name', 's_types', 'start', 'finish',)
+    list_display_links = ('sur_name', )
 
 
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('input_name', 'point', 'question', )
+    list_editable = ('point',)
 
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('question_name',  'types',)
 
 
-@admin.register(UserAnswer)
-class UserAnswerAdmin(admin.ModelAdmin):
-    pass
+
+

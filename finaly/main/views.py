@@ -64,11 +64,17 @@ class UserPoints(APIView):
             if result:
                 user_answer_possible = result.filter(possible_user_answer=True).count()
             all_user_state.append({'user_id': use.id,
+                                   # функция отдает кол-во баллов конкретного пользователся на конкретный тест
                                    'total': _user_points_in_survey(use.id, pk),
+                                   # функция отдает общее кол-во баллов на конкретный тест
                                    'total_sum': _all_points_in_survey(pk),
+                                   # кол-во вопросов на котрые ответил пользователь
                                    'user_questions_count': count_user_questions,
+                                   # общее кол-во вопросов
                                    'questions_count': len(questions),
+                                   # кол-во правильных ответов в тесте
                                    'answer_count': count_answer_possible,
+                                   # кол-во правильных ответов конкретного пользователя
                                    'user_answer_count': user_answer_possible,
                                    })
         serializer = UserResultsSerializer(all_user_state, many=True)
